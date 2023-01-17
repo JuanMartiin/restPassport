@@ -156,15 +156,11 @@ class SunController extends Controller
         
         $now = $hour * 3600 + $minutes * 60 + $seconds;
         
-        $degrees = 0 + (($now - $total1)/($total2 - $total1)) * (180 - 0);
+        $degrees = 0 + (($now - $total1)/($total2 - $total1)) * (0 - 180);
         
         $radians = $degrees * pi() / 180;
         
-        if($now > $total2){
-            return response()->json([
-            'sol' => 'Ya está puesto', 
-        ]);
-        }
+        
         //Valores retornados
         $cos = cos($radians);
         $sin = sin($radians);
